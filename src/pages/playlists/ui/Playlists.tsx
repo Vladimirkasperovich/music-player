@@ -1,9 +1,9 @@
-import { useFetchPlaylistsQuery } from '@/features/playlists/api/playlists.api.ts';
+import { useFetchPlaylistsQuery } from '@/entities/playlists/api/playlists.api.ts';
 
 function Playlists() {
-  const { data } = useFetchPlaylistsQuery({});
+  const { data: playlists } = useFetchPlaylistsQuery({});
 
-  console.log(data);
+  console.log(playlists?.data);
   return (
     <section className="text-center">
       <h1>Playlists</h1>

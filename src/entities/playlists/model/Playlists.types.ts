@@ -1,3 +1,25 @@
+export type PlaylistSortBy =
+  | 'addedAt'
+  | 'updatedAt'
+  | 'title'
+  | 'likesCount'
+  | 'tracksCount';
+
+export type SortDirection = 'asc' | 'desc';
+
+export type GetPlaylistsQueryParams = Partial<{
+  pageNumber: number;
+  pageSize: number;
+  search: string;
+
+  sortBy: PlaylistSortBy;
+  sortDirection: SortDirection;
+
+  tagsIds: string[];
+  userId: string;
+  trackId: string;
+}>;
+
 export interface GetPlaylistsResponse {
   data: PlaylistDto[];
 }
