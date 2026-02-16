@@ -1,8 +1,10 @@
 import { createBrowserRouter } from 'react-router';
-import { Home } from '@/pages/home/ui/Home.tsx';
-import { Playlists } from '@/pages/playlists/ui/Playlists.tsx';
-import { Tracks } from '@/pages/tracks/ui/Tracks.tsx';
-import { NotFound } from '@/pages/notFound/ui/NotFound.tsx';
+import { lazy } from 'react';
+
+const Home = lazy(() => import('@/pages/home/ui/Home.tsx'));
+const Playlists = lazy(() => import('@/pages/playlists/ui/Playlists.tsx'));
+const Tracks = lazy(() => import('@/pages/tracks/ui/Tracks.tsx'));
+const NotFound = lazy(() => import('@/pages/notFound/ui/NotFound.tsx'));
 
 export const router = createBrowserRouter([
   {
