@@ -1,16 +1,13 @@
+import { baseApi } from '@/shared/api/baseApi.ts';
 import type {
   GetPlaylistsQueryParams,
   GetPlaylistsResponse,
-} from '@/features/playlists/model/Playlists.types.ts';
-import { baseApi } from '@/shared/api/baseApi.ts';
+} from '@/entities/playlists/model/Playlists.types.ts';
 
 export const playlistApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     fetchPlaylists: build.query<GetPlaylistsResponse, GetPlaylistsQueryParams>({
-      query: (arg) => ({
-        url: '/playlists',
-        params: arg,
-      }),
+      query: (params) => ({ url: '/playlists', params }),
     }),
   }),
 });
