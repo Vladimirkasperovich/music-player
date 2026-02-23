@@ -1,11 +1,11 @@
-import { createBrowserRouter } from 'react-router';
 import { lazy } from 'react';
-import Layout from '@/app/Layout.tsx';
+import { createBrowserRouter } from 'react-router';
 
-const Home = lazy(() => import('@/pages/home/ui/Home.tsx'));
-const Playlists = lazy(() => import('@/pages/playlists/ui/Playlists.tsx'));
-const Tracks = lazy(() => import('@/pages/tracks/ui/Tracks.tsx'));
-const NotFound = lazy(() => import('@/pages/notFound/ui/NotFound.tsx'));
+const Layout = lazy(() => import('@/app/layouts/Layout.tsx'));
+const Home = lazy(() => import('@/pages/home'));
+const Playlists = lazy(() => import('@/pages/playlists'));
+const Tracks = lazy(() => import('@/pages/tracks'));
+const NotFound = lazy(() => import('@/pages/notFound'));
 
 export const router = createBrowserRouter([
   {

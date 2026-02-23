@@ -1,6 +1,6 @@
-import { Sidebar } from '@/widgets/sidebar/ui/Sidebar.tsx';
-import { Header } from '@/widgets/header/ui/Header.tsx';
 import { Outlet } from 'react-router';
+import { Sidebar } from '@/widgets/sidebar';
+import { Header } from '@/widgets/header';
 
 const Layout = () => {
   return (
@@ -8,7 +8,7 @@ const Layout = () => {
       <Header />
       <div className="flex">
         <Sidebar />
-        <main>
+        <main className="flex-1">
           <Outlet />
         </main>
       </div>

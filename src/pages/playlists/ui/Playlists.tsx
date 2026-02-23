@@ -1,4 +1,4 @@
-import { useFetchPlaylistsQuery } from '@/entities/playlists/api/playlists.api.ts';
+import { useFetchPlaylistsQuery } from '@/entities/playlists';
 
 function Playlists() {
   const { data: playlists } = useFetchPlaylistsQuery({});
