@@ -1,54 +1,53 @@
 @import 'tailwindcss';
 /* 400 */
 @font-face {
-    font-family: 'Lato';
-    src: url('../../shared/assets/fonts/Lato-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Lato';
+  src: url('../../shared/assets/fonts/Lato-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* 500 */
 @font-face {
-    font-family: 'Lato';
-    src: url('../../shared/assets/fonts/Lato-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Lato';
+  src: url('../../shared/assets/fonts/Lato-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* 600 */
 @font-face {
-    font-family: 'Lato';
-    src: url('../../shared/assets/fonts/Lato-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Lato';
+  src: url('../../shared/assets/fonts/Lato-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* 700 */
 @font-face {
-    font-family: 'Lato';
-    src: url('../../shared/assets/fonts/Lato-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Lato';
+  src: url('../../shared/assets/fonts/Lato-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* 800 */
 @font-face {
-    font-family: 'Lato';
-    src: url('../../shared/assets/fonts/Lato-ExtraBold.woff2') format('woff2');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Lato';
+  src: url('../../shared/assets/fonts/Lato-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
 }
 
-
 @theme {
-    --font-lato: "Lato"
+  --font-lato: 'Lato';
 }
 
 body {
-    font-family: var(--font-lato), sans-serif;
+  font-family: var(--font-lato), sans-serif;
 }

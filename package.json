@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "prepare": "husky",
     "prettier": "pnpm exec prettier . --write",
-    "fsd-checker": "npx steiger ./src"
+    "fsd-checker": "steiger ./src"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
