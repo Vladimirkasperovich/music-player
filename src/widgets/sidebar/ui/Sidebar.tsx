@@ -1,6 +1,6 @@
 export const Sidebar = () => {
   return (
-    <nav className="hidden md:block h-screen w-[310px] bg-[#000000] text-white text-center">
+    <nav className="hidden md:block h-screen w-[310px] bg-[#000000] text-white text-center font-bold text-lg">
       <ul>
         <li>Home</li>
         <li>Your Library</li>
