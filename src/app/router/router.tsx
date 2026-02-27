@@ -11,6 +11,7 @@ const pages = {
   library: lazy(() => import('@/pages/library')),
   createPlaylist: lazy(() => import('@/pages/createPlaylist')),
   uploadTrack: lazy(() => import('@/pages/uploadTrack')),
+  profile: lazy(() => import('@/pages/profile')),
 };
 
 export const router = createBrowserRouter([

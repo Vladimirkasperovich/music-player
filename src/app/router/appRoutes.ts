@@ -11,5 +11,5 @@ export const APP_ROUTES: AppRoute[] = [
   { path: ROUTES_PATHS.library, page: 'library' },
   { path: ROUTES_PATHS.createPlaylist, page: 'createPlaylist' },
   { path: ROUTES_PATHS.uploadTrack, page: 'uploadTrack' },
-  { path: ROUTES_PATHS.notFound, page: 'notFound' },
+  { path: ROUTES_PATHS.profile, page: 'profile' },
 ];
