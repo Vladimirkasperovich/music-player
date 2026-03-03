@@ -5,20 +5,22 @@ export const useOutsideClick = <T extends HTMLElement>(
   handler: () => void,
 ): RefObject<T | null> => {
   const ref = useRef<T>(null);
-  const handlerRef = useRef(handler);
+
   useEffect(() => {
+    if (!enable) return;
     const listener = (evt: MouseEvent) => {
-      if (!enable) return;
-      if (ref.current && !ref.current.contains(evt.target as Node)) {
-        handlerRef.current();
+      const elem = ref.current;
+      if (!elem) return;
+      if (!elem.contains(evt.target as Node)) {
+        handler();
       }
     };
 
-    document.addEventListener('click', listener, true);
+    document.addEventListener('mousedown', listener);
     return () => {
-      document.removeEventListener('click', listener, true);
+      document.removeEventListener('mousedown', listener);
     };
-  }, [enable]);
+  }, [enable, handler]);
 
   return ref;
 };
