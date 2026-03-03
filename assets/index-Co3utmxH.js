@@ -1,1 +1,0 @@
-import{b as e,j as s}from"./index-qdQkYpUP.js";function l(){const{data:t}=e({});return console.log(t?.data),s.jsx("section",{className:"text-center",children:s.jsx("h1",{children:"Playlists"})})}export{l as default};
