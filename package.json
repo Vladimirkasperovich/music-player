@@ -1,5 +1,6 @@
 {
   "name": "music-player",
+  "homepage": "https://Vladimirkasperovich.github.io/architecture/music-player/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,6 +9,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "predeploy": "run build",
+    "deploy": "gh-pages -d dist",
     "prepare": "husky",
     "prettier": "pnpm exec prettier . --write",
     "fsd-checker": "steiger ./src"
@@ -15,6 +18,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "gh-pages": "^6.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-redux": "^9.2.0",
