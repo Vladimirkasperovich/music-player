@@ -5,7 +5,7 @@ import { useSidebarKeyboard } from '@/widgets/sidebar/ui/useSidebarKeyboard.ts';
 export const Sidebar = () => {
   const { handleKeydown, currentIndex } = useSidebarKeyboard(NAVIGATION);
   return (
-    <nav className="hidden md:block h-screen w-[310px] bg-black font-bold text-lg">
+    <nav className="hidden md:block w-[310px] bg-black font-bold text-lg">
       <ul className="pl-9 pr-9 flex flex-col gap-6" onKeyDown={handleKeydown}>
         {NAVIGATION.map(({ id, label, src, icon }, index) => (
           <li key={id}>
