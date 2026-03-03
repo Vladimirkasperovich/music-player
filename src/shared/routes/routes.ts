@@ -1,5 +1,5 @@
 export const ROUTES_PATHS = {
-  home: '/',
+  home: '/music-player',
   playlists: '/playlists',
   tracks: '/tracks',
   library: '/library',
