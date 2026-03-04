@@ -5,7 +5,9 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
     prepareHeaders: (headers) => {
-      headers.set('API-KEY', API_KEY);
+      if (location.hostname.includes('github.io')) {
+        headers.set('API-KEY', API_KEY);
+      }
       headers.set('Authorization', `Bearer ${ACCESS_TOKEN}`);
       return headers;
     },
