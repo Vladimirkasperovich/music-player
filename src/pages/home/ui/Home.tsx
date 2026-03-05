@@ -1,13 +1,15 @@
 import { Link } from 'react-router';
 import { HASHTAGS } from '../model/HASHTAGS';
 import { PlaylistList, useFetchPlaylistsQuery } from '@/entities/playlists';
+import { TracksList, useFetchTracksQuery } from '@/entities/tracks';
 
 function Home() {
-  const { data } = useFetchPlaylistsQuery({ pageSize: 8 });
-  const playlists = data?.data ?? [];
-
+  const { data: tracksResponse } = useFetchTracksQuery({ pageSize: 10 });
+  const { data: playlistsResponse } = useFetchPlaylistsQuery({ pageSize: 8 });
+  const playlists = playlistsResponse?.data ?? [];
+  const tracks = tracksResponse?.data ?? [];
   return (
-    <section className="p-[30px] bg-[linear-gradient(180deg,_#3333A3_5.09%,_#121212_33.4%)]">
+    <section className="p-[30px] bg-[linear-gradient(180deg,_#3333A3_5.09%,_#121212_33.4%)] min-h-screen">
       <ul className="text-white flex items-center gap-3 text-center mb-8">
         {HASHTAGS.map((item) => (
           <li
@@ -30,6 +32,10 @@ function Home() {
       <div className="mb-8">
         <h2 className="font-semibold text-2xl text-white mb-6">New playlists</h2>
         <PlaylistList playlists={playlists} />
+      </div>
+      <div className="mb-20">
+        <h2 className="font-semibold text-2xl text-white mb-6">New Tracks</h2>
+        <TracksList tracks={tracks} />
       </div>
     </section>
   );
