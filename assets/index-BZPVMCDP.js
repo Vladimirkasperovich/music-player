@@ -1,0 +1,1 @@
+import{j as s}from"./index-DwHL95nx.js";import{u as r}from"./tracks.api-D2cAllgH.js";function o(){const{data:e}=r({});return console.log(e),s.jsx("section",{className:"text-center",children:s.jsx("h1",{children:"Tracks"})})}export{o as default};

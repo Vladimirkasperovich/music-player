@@ -1,0 +1,1 @@
+import{j as s}from"./index-DwHL95nx.js";import{u as e}from"./playlists.api-B9l6ZYrL.js";function o(){const{data:t}=e({});return console.log(t?.data),s.jsx("section",{className:"text-center",children:s.jsx("h1",{children:"Playlists"})})}export{o as default};
