@@ -1,12 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { playlistApi } from '@/entities/playlists';
-import { tracksApi } from '@/entities/tracks';
+import { baseApi } from '@/shared/api';
 
 export const store = configureStore({
   reducer: {
-    [playlistApi.reducerPath]: playlistApi.reducer,
-    [tracksApi.reducerPath]: tracksApi.reducer,
+    [baseApi.reducerPath]: baseApi.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(playlistApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
 });

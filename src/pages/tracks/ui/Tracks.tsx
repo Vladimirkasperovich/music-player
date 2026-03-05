@@ -1,4 +1,8 @@
+import { useFetchTracksQuery } from '@/entities/tracks';
+
 function Tracks() {
+  const { data } = useFetchTracksQuery({});
+  console.log(data);
   return (
     <section className="text-center">
       <h1>Tracks</h1>
