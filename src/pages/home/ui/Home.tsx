@@ -5,7 +5,7 @@ import { TracksList, useFetchTracksQuery } from '@/entities/tracks';
 
 function Home() {
   const { data: tracksResponse } = useFetchTracksQuery({ pageSize: 10 });
-  const { data: playlistsResponse } = useFetchPlaylistsQuery({ pageSize: 8 });
+  const { data: playlistsResponse } = useFetchPlaylistsQuery({ pageSize: 10 });
   const playlists = playlistsResponse?.data ?? [];
   const tracks = tracksResponse?.data ?? [];
   return (

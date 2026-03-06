@@ -1,15 +1,14 @@
 import type { FC } from 'react';
 import type { TrackDto } from '../model/Tracks.types';
 import noCover from '@/shared/assets/images/no-cover.png';
-import like from '@/shared/assets/images/inactive-like.svg';
-import dislike from '@/shared/assets/images/inactive-dislike.svg';
+import { LikeButtons } from '@/shared/ui';
 
 interface TracksListProps {
   tracks: TrackDto[];
 }
 export const TracksList: FC<TracksListProps> = ({ tracks }) => {
   return (
-    <ul className="flex items-center gap-3 text-white flex-wrap">
+    <ul className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10 gap-3 text-white">
       {tracks.map((track) => (
         <li
           key={track.id}
@@ -23,23 +22,16 @@ export const TracksList: FC<TracksListProps> = ({ tracks }) => {
           <img
             src={noCover}
             alt={`cover ${track.attributes.title}`}
-            className="w-[112px] h-[103px] bg-cover mb-2"
+            className="w-[112px] h-[103px] object-cover rounded-md mb-2"
             loading="lazy"
           />
-          <span className="font-semibold text-sm block overflow-hidden mb-2 whitespace-nowrap text-ellipsis">
+          <span className="font-semibold text-sm block truncate mb-2">
             {track.attributes.title}
           </span>
-          <span className="font-medium text-xs text-[#B3B3B3] block mb-2 overflow-hidden whitespace-nowrap text-ellipsis">
+          <span className="font-medium text-xs text-[#B3B3B3] block mb-2 truncate">
             {track.attributes.user.name}
           </span>
-          <div className="flex items-center gap-2">
-            <button>
-              <img src={like} alt="" />
-            </button>
-            <button>
-              <img src={dislike} alt="" />
-            </button>
-          </div>
+          <LikeButtons />
         </li>
       ))}
     </ul>
