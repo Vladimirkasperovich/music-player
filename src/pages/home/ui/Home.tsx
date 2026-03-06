@@ -10,12 +10,12 @@ function Home() {
   const tracks = tracksResponse?.data ?? [];
   return (
     <section className="p-[30px] bg-[linear-gradient(180deg,_#3333A3_5.09%,_#121212_33.4%)] min-h-screen">
-      <ul className="text-white flex items-center gap-3 text-center mb-8">
+      <ul className="hidden md:flex text-white  items-center gap-3 text-center mb-8">
         {HASHTAGS.map((item) => (
           <li
             key={item.id}
             className={`
-             ${item.bg} rounded-[45px] px-5 py-2 text-[12px] font-medium border border-white/10 transition-all duration-300 ease-out
+             ${item.bg}  rounded-[45px] px-5 py-2 text-[12px] font-medium border border-white/10 transition-all duration-300 ease-out
                             hover:-translate-y-1
                             hover:scale-105
                             hover:brightness-110
