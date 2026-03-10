@@ -1,11 +1,11 @@
-import { ROUTES_PATHS } from '@/shared/routes';
-import type { NavItem } from '@/widgets/sidebar/model/Sidebar.types.ts';
-import homeIcon from '../icons/homeIcon.svg';
-import yourLibrary from '../icons/libraryIcon.svg';
-import createPlaylist from '../icons/createIcon.svg';
-import uploadTrack from '../icons/uploadFileIcon.svg';
-import allTracks from '../icons/allTracksIcon.svg';
-import allPlaylists from '../icons/allPlaylistIcon.svg';
+import { ROUTES_PATHS } from '../routes';
+import type { NavItem } from './types';
+import homeIcon from '../assets/icons/homeIcon.svg';
+import yourLibrary from '../assets/icons/libraryIcon.svg';
+import createPlaylist from '../assets/icons/createIcon.svg';
+import uploadTrack from '../assets/icons/uploadFileIcon.svg';
+import allTracks from '../assets/icons/allTracksIcon.svg';
+import allPlaylists from '../assets/icons/allPlaylistIcon.svg';
 
 export const NAVIGATION: Readonly<NavItem[]> = [
   { id: 1, label: 'Home', src: ROUTES_PATHS.home, icon: homeIcon },

@@ -8,27 +8,22 @@ interface TracksListProps {
 }
 export const TracksList: FC<TracksListProps> = ({ tracks }) => {
   return (
-    <ul className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10 gap-3 text-white">
+    <ul className="grid grid-cols-4 gap-3 text-white sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10">
       {tracks.map((track) => (
         <li
           key={track.id}
-          className="p-2 border border-white/10 shadow-[0_4px_8px_rgba(0,0,0,0.25)] rounded-md
-                     transition-all duration-300 ease-out
-                     hover:translate-x-1
-                     hover:scale-[1.02]
-                   hover:border-white/40
-                     hover:shadow-[0_10px_20px_rgba(0,0,0,0.35)] max-w-[120px]"
+          className="max-w-[120px] rounded-md border border-white/10 p-2 shadow-[0_4px_8px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:translate-x-1 hover:scale-[1.02] hover:border-white/40 hover:shadow-[0_10px_20px_rgba(0,0,0,0.35)]"
         >
           <img
             src={noCover}
             alt={`cover ${track.attributes.title}`}
-            className="w-[112px] h-[103px] object-cover rounded-md mb-2"
+            className="mb-2 h-[103px] w-[112px] rounded-md object-cover"
             loading="lazy"
           />
-          <span className="font-semibold text-sm block truncate mb-2">
+          <span className="mb-2 block truncate text-sm font-semibold">
             {track.attributes.title}
           </span>
-          <span className="font-medium text-xs text-[#B3B3B3] block mb-2 truncate">
+          <span className="mb-2 block truncate text-xs font-medium text-[#B3B3B3]">
             {track.attributes.user.name}
           </span>
           <LikeButtons />

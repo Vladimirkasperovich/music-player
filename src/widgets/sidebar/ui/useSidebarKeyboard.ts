@@ -1,5 +1,5 @@
-import type { NavItem } from '@/widgets/sidebar/model/Sidebar.types.ts';
 import { useLocation, useNavigate } from 'react-router';
+import type { NavItem } from '@/shared/model';
 type UseSidebarKeyboardReturnType = {
   handleKeydown: (e: React.KeyboardEvent<HTMLUListElement>) => void;
   currentIndex: number;

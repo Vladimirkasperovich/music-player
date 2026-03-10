@@ -26,10 +26,10 @@ export const LikeButtons = () => {
   };
   return (
     <div className="flex items-center gap-2">
-      <button onClick={toggleLike} className="w-7 h-7">
+      <button onClick={toggleLike} className="h-7 w-7">
         <img src={userReaction.like ? activeLike : like} alt="like" />
       </button>
-      <button onClick={toggleDislike} className="w-7 h-7">
+      <button onClick={toggleDislike} className="h-7 w-7">
         <img src={userReaction.dislike ? activeDislike : dislike} alt="dislike" />
       </button>
     </div>

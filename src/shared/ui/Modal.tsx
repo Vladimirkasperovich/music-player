@@ -1,16 +1,15 @@
-import { type FC, type ReactElement } from 'react';
-interface ModalProps {
-  open: boolean;
-  children: ReactElement;
-}
-// TODO need to fix
-export const Modal: FC<ModalProps> = ({ children, open }) => {
+import { type FC, type PropsWithChildren } from 'react';
+// import { ModalContext } from '@/app/providers/modalContext';
+
+export const Modal: FC<PropsWithChildren> = ({ children }) => {
+  // const { isOpenModal } = useContext(ModalContext);
+
   return (
     <dialog
-      open={open}
-      className="border border-red-700 fixed top-[8.5%] inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent"
+      open={true}
+      className="fixed top-20 right-0 bottom-0 left-0 z-50 flex w-full items-center justify-center border-none bg-transparent p-0 backdrop:bg-black/60 backdrop:backdrop-blur-sm"
     >
-      <div className="flex min-h-full justify-center p-4 text-center focus:outline-none">
+      <div className="animate-modal-in max-w-lg min-w-[320px] rounded-xl bg-[#141414] p-6 text-white shadow-2xl">
         {children}
       </div>
     </dialog>

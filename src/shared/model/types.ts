@@ -1,4 +1,4 @@
-import type { RoutePath } from '@/shared/routes';
+import type { RoutePath } from '../routes';
 
 export interface NavItem {
   id: number;
