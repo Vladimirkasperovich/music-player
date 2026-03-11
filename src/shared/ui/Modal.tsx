@@ -18,12 +18,12 @@ export const Modal: FC<PropsWithChildren> = ({ children }) => {
   useEffect(() => {
     if (!isOpenModal) return;
     const keyCheck = (event: KeyboardEvent) => {
-      if (event.code === 'Escape') {
+      if (event.key === 'Escape') {
         closeModal();
       }
     };
-    document.addEventListener('keydown', keyCheck);
-    return () => document.removeEventListener('keydown', keyCheck);
+    window.addEventListener('keydown', keyCheck);
+    return () => window.removeEventListener('keydown', keyCheck);
   }, [closeModal, isOpenModal]);
 
   const backDropClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -34,7 +34,7 @@ export const Modal: FC<PropsWithChildren> = ({ children }) => {
   return createPortal(
     <dialog
       open={isOpenModal}
-      className="fixed inset-0 z-50 w-full bg-transparent p-0"
+      className="fixed inset-0 z-50 w-full border-none bg-transparent p-0"
       role="dialog"
       aria-modal="true"
     >
