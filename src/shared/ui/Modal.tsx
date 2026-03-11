@@ -1,17 +1,56 @@
-import { type FC, type PropsWithChildren } from 'react';
-// import { ModalContext } from '@/app/providers/modalContext';
+import { type FC, type PropsWithChildren, useContext, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
+import { ModalContext } from '@/shared/lib';
 
 export const Modal: FC<PropsWithChildren> = ({ children }) => {
-  // const { isOpenModal } = useContext(ModalContext);
+  const { isOpenModal, closeModal } = useContext(ModalContext);
+  const ref = useRef<null | HTMLDivElement>(null);
 
-  return (
+  useEffect(() => {
+    if (isOpenModal) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpenModal]);
+
+  useEffect(() => {
+    if (!isOpenModal) return;
+    const keyCheck = (event: KeyboardEvent) => {
+      if (event.code === 'Escape') {
+        closeModal();
+      }
+    };
+    document.addEventListener('keydown', keyCheck);
+    return () => document.removeEventListener('keydown', keyCheck);
+  }, [closeModal, isOpenModal]);
+
+  const backDropClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.target === ref.current) {
+      closeModal();
+    }
+  };
+  return createPortal(
     <dialog
-      open={true}
-      className="fixed top-20 right-0 bottom-0 left-0 z-50 flex w-full items-center justify-center border-none bg-transparent p-0 backdrop:bg-black/60 backdrop:backdrop-blur-sm"
+      open={isOpenModal}
+      className="fixed inset-0 z-50 w-full bg-transparent p-0"
+      role="dialog"
+      aria-modal="true"
     >
-      <div className="animate-modal-in max-w-lg min-w-[320px] rounded-xl bg-[#141414] p-6 text-white shadow-2xl">
-        {children}
+      <div
+        ref={ref}
+        onClick={backDropClick}
+        className="flex min-h-screen w-full items-center justify-center bg-black/60 p-4"
+      >
+        <div
+          className="animate-modal-in w-full max-w-lg rounded-xl bg-[#141414] p-6 text-white shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {children}
+        </div>
       </div>
-    </dialog>
+    </dialog>,
+    document.getElementById('modal') as HTMLElement,
   );
 };

@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import avatar from '../icons/avatar.svg';
 import arrowDown from '../icons/arrow-down.svg';
 import arrowUp from '../icons/arrow-up.svg';
 import { useOutsideClick } from '@/shared/lib';
-// import { ModalContext } from '@/app/providers/modalContext.ts';
-import { DROPDOWN_ITEMS } from '@/widgets/header/model/DROPDOWN_ITEMS.ts';
+import { DROPDOWN_ITEMS } from '../model/DROPDOWN_ITEMS';
+import { ModalContext } from '@/shared/lib';
 
 export const Header = () => {
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
-  // const { isOpenModal, toggleModal } = useContext(ModalContext);
-  // const toggleBurgerMenu = () => toggleModal();
+  const { isOpenModal, toggleModal } = useContext(ModalContext);
+  const toggleBurgerMenu = () => toggleModal();
   const toggleDropdown = () => setIsOpenDropdown((prevState) => !prevState);
   const ref = useOutsideClick<HTMLDivElement>(isOpenDropdown, () =>
     setIsOpenDropdown(false),
@@ -20,16 +20,16 @@ export const Header = () => {
     <header className="flex h-20 items-center justify-between bg-black pt-5 pr-[30px] pb-5 pl-[30px] md:justify-end">
       <button
         className="flex cursor-pointer flex-col items-center gap-1.5 md:hidden"
-        onClick={() => {}}
+        onClick={toggleBurgerMenu}
       >
         <span
-          className={`h-1 w-[35px] bg-white duration-300 ${true ? 'translate-x-0 translate-y-[10px] -rotate-45' : ''}`}
+          className={`h-1 w-[35px] bg-white duration-300 ${isOpenModal ? 'translate-x-0 translate-y-[10px] -rotate-45' : ''}`}
         />
         <span
-          className={`h-1 w-[35px] bg-white duration-300 ${true ? 'opacity-0' : ''}`}
+          className={`h-1 w-[35px] bg-white duration-300 ${isOpenModal ? 'opacity-0' : ''}`}
         />
         <span
-          className={`h-1 w-[35px] bg-white duration-300 ${true ? 'translate-x-0 -translate-y-[10px] rotate-45' : ''}`}
+          className={`h-1 w-[35px] bg-white duration-300 ${isOpenModal ? 'translate-x-0 -translate-y-[10px] rotate-45' : ''}`}
         />
       </button>
       <div
@@ -48,7 +48,7 @@ export const Header = () => {
 
         <ul
           role="menu"
-          className={`absolute top-full right-0 z-1 flex flex-col items-start gap-4 bg-black p-4 text-[16px] font-medium transition-all duration-300 ease-in-out ${
+          className={`absolute top-full right-0 z-20 flex flex-col items-start gap-4 bg-black p-4 text-[16px] font-medium transition-all duration-300 ease-in-out ${
             isOpenDropdown
               ? 'pointer-events-auto scale-100 opacity-100'
               : 'pointer-events-none scale-95 opacity-0'

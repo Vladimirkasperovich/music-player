@@ -12,6 +12,7 @@ export const PlaylistList: FC<PlaylistListProp> = ({ playlists }) => {
     <ul className="grid grid-cols-1 gap-2 text-white sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {playlists.map((playlist) => (
         <li
+          onClick={() => alert('AAAA')}
           key={playlist.id}
           className="w-full rounded-md border border-white/10 p-3 shadow-[0_4px_8px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:border-white/40 hover:shadow-[0_10px_20px_rgba(0,0,0,0.35)]"
         >

@@ -11,7 +11,7 @@ const Layout = () => {
         <Header />
         <div className="flex">
           <Sidebar />
-          <main className="relative flex-1">
+          <main className="flex-1">
             <Outlet />
 
             <Modal>
