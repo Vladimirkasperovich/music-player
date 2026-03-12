@@ -9,7 +9,7 @@ function Home() {
   const playlists = playlistsResponse?.data ?? [];
   const tracks = tracksResponse?.data ?? [];
   return (
-    <section className="min-h-screen bg-[linear-gradient(180deg,_#3333A3_5.09%,_#121212_33.4%)] p-[30px]">
+    <section className="min-h-screen bg-[linear-gradient(180deg,#3333A3_5.09%,#121212_33.4%)] p-7.5">
       <ul className="mb-8 hidden items-center gap-3 text-center text-white md:flex">
         {HASHTAGS.map((item) => (
           <li

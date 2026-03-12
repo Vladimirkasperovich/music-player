@@ -1,6 +1,6 @@
 const Library = () => {
   return (
-    <section className="text-center">
+    <section className="min-h-screen text-center">
       <h1>Library</h1>
     </section>
   );

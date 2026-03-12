@@ -1,6 +1,6 @@
 const UploadTrack = () => {
   return (
-    <section className="text-center">
+    <section className="min-h-screen text-center">
       <h1>UploadTrack</h1>
     </section>
   );

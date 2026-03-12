@@ -4,7 +4,7 @@ function Tracks() {
   const { data } = useFetchTracksQuery({});
   console.log(data);
   return (
-    <section className="text-center">
+    <section className="min-h-screen text-center">
       <h1>Tracks</h1>
     </section>
   );
