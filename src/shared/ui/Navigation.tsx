@@ -14,6 +14,7 @@ export const Navigation: FC<NavigationProps> = ({ items, tabIndex, onKeyDown }) 
       {items.map(({ id, label, src, icon }, index) => (
         <li key={id}>
           <NavLink
+            end
             tabIndex={tabIndex === index ? 0 : -1}
             to={src}
             className={({ isActive }) =>
