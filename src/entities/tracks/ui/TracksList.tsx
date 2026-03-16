@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { TrackDto } from '../model/Tracks.types';
+import type { TrackDto } from '../model/types.ts';
 import noCover from '@/shared/assets/images/no-cover.png';
 import { LikeButtons } from '@/shared/ui';
 

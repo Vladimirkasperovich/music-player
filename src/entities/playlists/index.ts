@@ -1,13 +1,16 @@
-export { playlistApi, useFetchPlaylistsQuery } from './api/playlists.api';
+export {
+  playlistApi,
+  useFetchPlaylistsQuery,
+  useCreatePlaylistMutation,
+} from './api/playlists.api';
 export { PlaylistList } from './ui/PlaylistList';
 export type {
   GetPlaylistsQueryParams,
-  GetPlaylistsResponse,
-  PlaylistAttributesDto,
-  PlaylistDto,
-  PlaylistImageDto,
+  MetaDto,
+  PlaylistsDto,
+  PlaylistsResponse,
   PlaylistImagesDto,
-  PlaylistUserDto,
   PlaylistSortBy,
   SortDirection,
-} from './model/Playlists.types';
+  PlaylistCreationData,
+} from './model/types.ts';

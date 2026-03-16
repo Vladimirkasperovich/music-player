@@ -1,5 +1,6 @@
-import type { Hashtag } from '../model/Home.types.ts';
-export const HASHTAGS: Hashtag[] = [
+import type { Hashtag } from './types.ts';
+
+export const Constants: Hashtag[] = [
   { id: 1, text: '#Playlists', bg: 'bg-[#3A3AB2]', src: '#' },
   { id: 2, text: '#Artists', bg: 'bg-[#31319A]', src: '#' },
   { id: 3, text: '#Albums', bg: 'bg-[#292982]', src: '#' },

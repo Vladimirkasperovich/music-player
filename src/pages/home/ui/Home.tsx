@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { HASHTAGS } from '../model/HASHTAGS';
+import { Constants } from '../model/constants.ts';
 import { PlaylistList, useFetchPlaylistsQuery } from '@/entities/playlists';
 import { TracksList, useFetchTracksQuery } from '@/entities/tracks';
 
@@ -11,7 +11,7 @@ function Home() {
   return (
     <section className="min-h-screen bg-[linear-gradient(180deg,#3333A3_5.09%,#121212_33.4%)] p-7.5">
       <ul className="mb-8 hidden items-center gap-3 text-center text-white md:flex">
-        {HASHTAGS.map((item) => (
+        {Constants.map((item) => (
           <li
             key={item.id}
             className={` ${item.bg} rounded-[45px] border border-white/10 px-5 py-2 text-[12px] font-medium transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:shadow-[0_8px_20px_rgba(51,51,163,0.35)] hover:brightness-110 active:scale-95`}

@@ -1,10 +1,10 @@
-import type { PlaylistDto } from '../model/Playlists.types';
 import type { FC } from 'react';
 import noCover from '@/shared/assets/images/no-cover.png';
 import { LikeButtons } from '@/shared/ui';
+import type { PlaylistsDto } from '@/entities/playlists';
 
 interface PlaylistListProp {
-  playlists: PlaylistDto[];
+  playlists: PlaylistsDto[];
 }
 
 export const PlaylistList: FC<PlaylistListProp> = ({ playlists }) => {

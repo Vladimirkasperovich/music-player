@@ -1,18 +1,18 @@
-import { type ChangeEvent, useState } from 'react';
+import { type ChangeEvent, type SyntheticEvent, useState } from 'react';
+import {
+  type PlaylistCreationData,
+  useCreatePlaylistMutation,
+} from '@/entities/playlists';
+import { CREATE_PLAYLIST } from '@/pages/createPlaylist/model/constants.ts';
 
 const CreatePlaylist = () => {
-  const [createPlaylistForm, setCreatePlaylistForm] = useState<{
-    title: string;
-    description: string;
-  }>({
-    title: '',
-    description: '',
-  });
+  const [createPlaylist] = useCreatePlaylistMutation();
+  const [createPlaylistForm, setCreatePlaylistForm] =
+    useState<PlaylistCreationData>(CREATE_PLAYLIST);
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCreatePlaylistForm((prevState) => ({ ...prevState, title: event.target.value }));
   };
-
   const handleDescriptionChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setCreatePlaylistForm((prevState) => ({
       ...prevState,
@@ -20,10 +20,13 @@ const CreatePlaylist = () => {
     }));
   };
 
-  console.log(createPlaylistForm);
+  const submit = (event: SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    createPlaylist(createPlaylistForm);
+  };
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#4B4BB8_0%,#2A2A6A_25%,#121212_60%)] p-7.5">
-      <form className="flex flex-col items-center gap-5">
+      <form className="flex flex-col items-center gap-5" onSubmit={submit}>
         <input type="file" className="h-70 w-70 bg-[#000000]" />
         <label htmlFor="title" className="flex w-1/2 flex-col gap-1 text-[#808080]">
           Playlist title
@@ -46,6 +49,9 @@ const CreatePlaylist = () => {
             onChange={handleDescriptionChange}
           />
         </label>
+        <button type="submit" className="h-10 w-1/2 rounded-sm bg-black">
+          CreatePlaylist
+        </button>
       </form>
     </div>
   );
