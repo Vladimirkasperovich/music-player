@@ -3,6 +3,7 @@ import { Sidebar } from '@/widgets/sidebar';
 import { Header } from '@/widgets/header';
 import { Modal, Navigation } from '@/shared/ui';
 import { NAVIGATION } from '@/shared/model';
+import { ToastContainer } from 'react-toastify';
 
 const Layout = () => {
   return (
@@ -13,7 +14,7 @@ const Layout = () => {
           <Sidebar />
           <main className="flex-1">
             <Outlet />
-
+            <ToastContainer position="top-center" />
             <Modal>
               <Navigation items={NAVIGATION} />
             </Modal>
