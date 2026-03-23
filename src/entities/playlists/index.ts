@@ -1,6 +1,7 @@
 export {
   playlistApi,
   useFetchPlaylistsQuery,
+  useRemovePlaylistMutation,
   useCreatePlaylistMutation,
 } from './api/playlists.api';
 export { PlaylistList } from './ui/PlaylistList';

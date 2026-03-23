@@ -2,12 +2,17 @@ import { Link } from 'react-router';
 import { Constants } from '../model/constants.ts';
 import { PlaylistList, useFetchPlaylistsQuery } from '@/entities/playlists';
 import { TracksList, useFetchTracksQuery } from '@/entities/tracks';
+import { useMeQuery } from '@/features/auth';
 
 function Home() {
   const { data: tracksResponse } = useFetchTracksQuery({ pageSize: 10 });
   const { data: playlistsResponse } = useFetchPlaylistsQuery({ pageSize: 10 });
+  const { data: meResponse } = useMeQuery();
+
   const playlists = playlistsResponse?.data ?? [];
   const tracks = tracksResponse?.data ?? [];
+  const ownerId = meResponse?.userId ?? '0';
+
   return (
     <section className="min-h-screen bg-[linear-gradient(180deg,#3333A3_5.09%,#121212_33.4%)] p-7.5">
       <ul className="mb-8 hidden items-center gap-3 text-center text-white md:flex">
@@ -24,7 +29,7 @@ function Home() {
       </ul>
       <div className="mb-8">
         <h2 className="mb-6 text-2xl font-semibold text-white">New playlists</h2>
-        <PlaylistList playlists={playlists} />
+        <PlaylistList playlists={playlists} ownerId={ownerId} />
       </div>
       <div className="mb-20">
         <h2 className="mb-6 text-2xl font-semibold text-white">New Tracks</h2>

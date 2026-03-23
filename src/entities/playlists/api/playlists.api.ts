@@ -17,8 +17,17 @@ export const playlistApi = baseApi.injectEndpoints({
         method: 'POST',
         body: { data: { type: 'playlists', attributes: { title, description } } },
       }),
+      invalidatesTags: ['playlists'],
+    }),
+    removePlaylist: build.mutation<void, string>({
+      query: (playlistId) => ({ url: `/playlists/${playlistId}`, method: 'DELETE' }),
+      invalidatesTags: ['playlists'],
     }),
   }),
 });
 
-export const { useFetchPlaylistsQuery, useCreatePlaylistMutation } = playlistApi;
+export const {
+  useFetchPlaylistsQuery,
+  useCreatePlaylistMutation,
+  useRemovePlaylistMutation,
+} = playlistApi;
