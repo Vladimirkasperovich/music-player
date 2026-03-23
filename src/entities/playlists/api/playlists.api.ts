@@ -2,6 +2,7 @@ import type {
   GetPlaylistsQueryParams,
   PlaylistCreationData,
   PlaylistsResponse,
+  PlaylistUpdateParams,
 } from '@/entities/playlists';
 import { baseApi } from '@/shared/api';
 
@@ -23,6 +24,14 @@ export const playlistApi = baseApi.injectEndpoints({
       query: (playlistId) => ({ url: `/playlists/${playlistId}`, method: 'DELETE' }),
       invalidatesTags: ['playlists'],
     }),
+    updatePlaylist: build.mutation<void, PlaylistUpdateParams>({
+      query: ({ playlistId, body }) => ({
+        url: `/playlists/${playlistId}`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['playlists'],
+    }),
   }),
 });
 
@@ -30,4 +39,5 @@ export const {
   useFetchPlaylistsQuery,
   useCreatePlaylistMutation,
   useRemovePlaylistMutation,
+  useUpdatePlaylistMutation,
 } = playlistApi;

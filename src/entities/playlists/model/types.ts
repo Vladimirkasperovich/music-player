@@ -1,3 +1,17 @@
+export interface PlaylistUpdateParams {
+  body: UpdatePlaylistBody;
+  playlistId: string;
+}
+export interface UpdatePlaylistBody {
+  data: {
+    type: 'playlists';
+    attributes: {
+      title: string;
+      description: string;
+      tagIds: string[];
+    };
+  };
+}
 export interface PlaylistCreationData {
   title: string;
   description: string;

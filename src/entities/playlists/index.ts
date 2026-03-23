@@ -3,6 +3,7 @@ export {
   useFetchPlaylistsQuery,
   useRemovePlaylistMutation,
   useCreatePlaylistMutation,
+  useUpdatePlaylistMutation,
 } from './api/playlists.api';
 export { PlaylistList } from './ui/PlaylistList';
 export type {
@@ -14,6 +15,7 @@ export type {
   PlaylistSortBy,
   SortDirection,
   PlaylistCreationData,
+  PlaylistUpdateParams,
 } from './model/types.ts';
 export { playlistSchema } from './model/playlists.shema.ts';
 export type { PlaylistFormValues } from './model/playlists.shema.ts';
