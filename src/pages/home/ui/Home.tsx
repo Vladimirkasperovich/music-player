@@ -3,10 +3,12 @@ import { Constants } from '../model/constants.ts';
 import { PlaylistList, useFetchPlaylistsQuery } from '@/entities/playlists';
 import { TracksList, useFetchTracksQuery } from '@/entities/tracks';
 import { useMeQuery } from '@/features/auth';
+import { Skeleton } from '@/shared/ui';
 
 function Home() {
   const { data: tracksResponse } = useFetchTracksQuery({ pageSize: 10 });
-  const { data: playlistsResponse } = useFetchPlaylistsQuery({ pageSize: 10 });
+  const { data: playlistsResponse, isLoading: playlistsStatusLoading } =
+    useFetchPlaylistsQuery({ pageSize: 10 });
   const { data: meResponse } = useMeQuery();
 
   const playlists = playlistsResponse?.data ?? [];
@@ -29,7 +31,11 @@ function Home() {
       </ul>
       <div className="mb-8">
         <h2 className="mb-6 text-2xl font-semibold text-white">New playlists</h2>
-        <PlaylistList playlists={playlists} ownerId={ownerId} />
+        {playlistsStatusLoading ? (
+          <Skeleton className="h-10 w-10" />
+        ) : (
+          <PlaylistList playlists={playlists} ownerId={ownerId} />
+        )}
       </div>
       <div className="mb-20">
         <h2 className="mb-6 text-2xl font-semibold text-white">New Tracks</h2>

@@ -12,12 +12,12 @@ export const TracksList: FC<TracksListProps> = ({ tracks }) => {
       {tracks.map((track) => (
         <li
           key={track.id}
-          className="max-w-[120px] rounded-md border border-white/10 p-2 shadow-[0_4px_8px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:translate-x-1 hover:scale-[1.02] hover:border-white/40 hover:shadow-[0_10px_20px_rgba(0,0,0,0.35)]"
+          className="max-w-30 rounded-md border border-white/10 p-2 shadow-[0_4px_8px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:translate-x-1 hover:scale-[1.02] hover:border-white/40 hover:shadow-[0_10px_20px_rgba(0,0,0,0.35)]"
         >
           <img
             src={noCover}
             alt={`cover ${track.attributes.title}`}
-            className="mb-2 h-[103px] w-[112px] rounded-md object-cover"
+            className="mb-2 h-25.75 w-28 rounded-md object-cover"
             loading="lazy"
           />
           <span className="mb-2 block truncate text-sm font-semibold">
