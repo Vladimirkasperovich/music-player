@@ -5,12 +5,13 @@ import { TracksList, useFetchTracksQuery } from '@/entities/tracks';
 import { useMeQuery } from '@/features/auth';
 import { Skeleton } from '@/shared/ui';
 
+const skeletonItems = new Array(10).fill(1);
 function Home() {
   const { data: tracksResponse } = useFetchTracksQuery({ pageSize: 10 });
   const { data: playlistsResponse, isLoading: playlistsStatusLoading } =
     useFetchPlaylistsQuery({ pageSize: 10 });
-  const { data: meResponse } = useMeQuery();
 
+  const { data: meResponse } = useMeQuery();
   const playlists = playlistsResponse?.data ?? [];
   const tracks = tracksResponse?.data ?? [];
   const ownerId = meResponse?.userId ?? '0';
@@ -31,10 +32,15 @@ function Home() {
       </ul>
       <div className="mb-8">
         <h2 className="mb-6 text-2xl font-semibold text-white">New playlists</h2>
-        {playlistsStatusLoading ? (
-          <Skeleton className="h-10 w-10" />
-        ) : (
+        {!playlistsStatusLoading && (
           <PlaylistList playlists={playlists} ownerId={ownerId} />
+        )}
+        {playlistsStatusLoading && (
+          <ul className="grid grid-cols-1 gap-2 text-white sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {skeletonItems.map((_, index) => (
+              <Skeleton key={index} />
+            ))}
+          </ul>
         )}
       </div>
       <div className="mb-20">
