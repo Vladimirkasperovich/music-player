@@ -8,6 +8,7 @@ import { type PlaylistsDto, useRemovePlaylistMutation } from '@/entities/playlis
 interface PlaylistListProp {
   playlists: PlaylistsDto[];
   ownerId?: string;
+  isLoading?: boolean;
 }
 
 export const PlaylistList: FC<PlaylistListProp> = ({ playlists, ownerId }) => {
@@ -20,7 +21,10 @@ export const PlaylistList: FC<PlaylistListProp> = ({ playlists, ownerId }) => {
           className="w-full rounded-md border border-white/10 p-3 shadow-[0_4px_8px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:border-white/40 hover:shadow-[0_10px_20px_rgba(0,0,0,0.35)]"
         >
           <img
-            src={noCover}
+            src={
+              playlist.attributes.images.main.find((i) => i.type === 'medium')?.url ??
+              noCover
+            }
             alt={`playlist cover ${playlist.attributes.title}`}
             className="mb-3 rounded-md object-cover"
             loading="lazy"
