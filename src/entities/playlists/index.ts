@@ -6,6 +6,7 @@ export {
   useUpdatePlaylistMutation,
 } from './api/playlists.api';
 export { PlaylistList } from './ui/PlaylistList';
+export { PlaylistItem } from './ui/PlaylistItem';
 export type {
   GetPlaylistsQueryParams,
   MetaDto,
@@ -16,6 +17,6 @@ export type {
   SortDirection,
   PlaylistCreationData,
   PlaylistUpdateParams,
-} from './model/types.ts';
-export { playlistSchema } from './model/playlists.shema.ts';
-export type { PlaylistFormValues } from './model/playlists.shema.ts';
+} from './model/types';
+export { playlistSchema } from './model/playlists.shema';
+export type { PlaylistFormValues } from './model/playlists.shema';
