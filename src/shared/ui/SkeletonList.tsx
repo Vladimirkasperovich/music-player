@@ -1,20 +1,17 @@
-import { type FC, useMemo } from 'react';
-import { Skeleton } from '@/shared/ui/Skeleton.tsx';
+import { type FC } from 'react';
+import { SkeletonCard } from '@/shared/ui/SkeletonCard.tsx';
 
 interface SkeletonListProps {
-  listLength: number;
+  count: number;
+  variant: 'playlist' | 'track';
 }
 
-export const SkeletonList: FC<SkeletonListProps> = ({ listLength }) => {
-  const skeletonItems = useMemo(
-    () => Array.from({ length: listLength }).fill(1),
-    [listLength],
-  );
+export const SkeletonList: FC<SkeletonListProps> = ({ count, variant }) => {
   return (
-    <ul className="grid grid-cols-1 gap-2 text-white sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-      {skeletonItems.map((_, index) => (
-        <Skeleton key={index} />
+    <>
+      {Array.from({ length: count }).map((_, i) => (
+        <SkeletonCard key={i} variant={variant} />
       ))}
-    </ul>
+    </>
   );
 };

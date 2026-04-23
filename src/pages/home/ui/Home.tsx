@@ -1,12 +1,13 @@
 import { Link } from 'react-router';
 import { Constants } from '../model/constants.ts';
 import { PlaylistList, useFetchPlaylistsQuery } from '@/entities/playlists';
-import { TracksList, useFetchTracksQuery } from '@/entities/tracks';
+import { TrackList, useFetchTracksQuery } from '@/entities/tracks';
 import { useMeQuery } from '@/features/auth';
-import { SkeletonList } from '@/shared/ui';
 
 function Home() {
-  const { data: tracksResponse } = useFetchTracksQuery({ pageSize: 10 });
+  const { data: tracksResponse, isLoading: tracksLoading } = useFetchTracksQuery({
+    pageSize: 10,
+  });
   const { data: playlistsResponse, isLoading: playlistsLoading } = useFetchPlaylistsQuery(
     { pageSize: 10 },
   );
@@ -32,15 +33,15 @@ function Home() {
       </ul>
       <div className="mb-8">
         <h2 className="mb-6 text-2xl font-semibold text-white">New playlists</h2>
-        {playlistsLoading ? (
-          <SkeletonList listLength={10} />
-        ) : (
-          <PlaylistList playlists={playlists} ownerId={ownerId} />
-        )}
+        <PlaylistList
+          playlists={playlists}
+          ownerId={ownerId}
+          isLoading={playlistsLoading}
+        />
       </div>
       <div className="mb-20">
         <h2 className="mb-6 text-2xl font-semibold text-white">New Tracks</h2>
-        <TracksList tracks={tracks} />
+        <TrackList tracks={tracks} isLoading={tracksLoading} />
       </div>
     </section>
   );
