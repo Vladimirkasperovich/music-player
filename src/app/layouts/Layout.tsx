@@ -2,8 +2,8 @@ import { Outlet } from 'react-router';
 import { Sidebar } from '@/widgets/sidebar';
 import { Header } from '@/widgets/header';
 import { Modal, Navigation } from '@/shared/ui';
-import { NAVIGATION } from '@/shared/model';
 import { ToastContainer } from 'react-toastify';
+import { NAVIGATION } from '@/shared/model';
 
 const Layout = () => {
   return (

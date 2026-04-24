@@ -1,6 +1,7 @@
-import type { FC } from 'react';
+import { type FC, useContext } from 'react';
 import { type NavItem } from '@/shared/model';
 import { NavLink } from 'react-router';
+import { ModalContext } from '@/shared/lib';
 
 interface NavigationProps {
   items: Readonly<NavItem[]>;
@@ -9,11 +10,16 @@ interface NavigationProps {
 }
 
 export const Navigation: FC<NavigationProps> = ({ items, tabIndex, onKeyDown }) => {
+  const { closeModal } = useContext(ModalContext);
+  const handleClick = () => {
+    closeModal();
+  };
   return (
     <ul className="flex flex-col gap-6 pr-9 pl-9" onKeyDown={onKeyDown}>
       {items.map(({ id, label, src, icon }, index) => (
         <li key={id}>
           <NavLink
+            onClick={handleClick}
             end
             tabIndex={tabIndex === index ? 0 : -1}
             to={src}

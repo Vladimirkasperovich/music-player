@@ -4,7 +4,7 @@ import { ModalContext } from '@/shared/lib';
 
 export const Modal: FC<PropsWithChildren> = ({ children }) => {
   const { isOpenModal, closeModal } = useContext(ModalContext);
-  const ref = useRef<null | HTMLDivElement>(null);
+  const backDropRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpenModal) {
@@ -27,26 +27,24 @@ export const Modal: FC<PropsWithChildren> = ({ children }) => {
   }, [closeModal, isOpenModal]);
 
   const backDropClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (event.target === ref.current) {
+    if (event.target === backDropRef.current) {
       closeModal();
     }
   };
+
   return createPortal(
     <dialog
       open={isOpenModal}
-      className="fixed inset-0 z-50 w-full border-none bg-transparent p-0"
+      className="fixed inset-0 z-50 w-full border-none bg-transparent"
       role="dialog"
       aria-modal="true"
     >
       <div
-        ref={ref}
+        ref={backDropRef}
         onClick={backDropClick}
-        className="flex min-h-screen w-full items-center justify-center bg-black/60 p-4"
+        className="flex min-h-screen w-full items-center justify-center bg-black/60"
       >
-        <div
-          className="animate-modal-in w-full max-w-lg rounded-xl bg-[#141414] p-6 text-white shadow-2xl"
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className="animate-modal-in w-full max-w-lg bg-[#141414] p-6 text-white shadow-2xl">
           {children}
         </div>
       </div>

@@ -3,9 +3,8 @@ import { Link } from 'react-router';
 import avatar from '../icons/avatar.svg';
 import arrowDown from '../icons/arrow-down.svg';
 import arrowUp from '../icons/arrow-up.svg';
-import { useOutsideClick } from '@/shared/lib';
+import { ModalContext, useOutsideClick } from '@/shared/lib';
 import { DROPDOWN_ITEMS } from '../model/DROPDOWN_ITEMS';
-import { ModalContext } from '@/shared/lib';
 
 export const Header = () => {
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
@@ -17,19 +16,19 @@ export const Header = () => {
   );
 
   return (
-    <header className="flex h-20 items-center justify-between bg-black pt-5 pr-[30px] pb-5 pl-[30px] md:justify-end">
+    <header className="flex h-20 items-center justify-between bg-black pt-5 pr-7.5 pb-5 pl-7.5 md:justify-end">
       <button
         className="flex cursor-pointer flex-col items-center gap-1.5 md:hidden"
         onClick={toggleBurgerMenu}
       >
         <span
-          className={`h-1 w-[35px] bg-white duration-300 ${isOpenModal ? 'translate-x-0 translate-y-[10px] -rotate-45' : ''}`}
+          className={`h-1 w-8.75 bg-white duration-300 ${isOpenModal ? 'translate-x-0 translate-y-2.5 -rotate-45' : ''}`}
         />
         <span
-          className={`h-1 w-[35px] bg-white duration-300 ${isOpenModal ? 'opacity-0' : ''}`}
+          className={`h-1 w-8.75 bg-white duration-300 ${isOpenModal ? 'opacity-0' : ''}`}
         />
         <span
-          className={`h-1 w-[35px] bg-white duration-300 ${isOpenModal ? 'translate-x-0 -translate-y-[10px] rotate-45' : ''}`}
+          className={`h-1 w-8.75 bg-white duration-300 ${isOpenModal ? 'translate-x-0 -translate-y-2.5 rotate-45' : ''}`}
         />
       </button>
       <div
@@ -37,7 +36,7 @@ export const Header = () => {
         ref={ref}
       >
         <button onClick={toggleDropdown} className="flex items-center gap-3">
-          <span className="h-[35px] w-[35px]">
+          <span className="h-8.75 w-8.75">
             <img src={avatar} alt="avatar" className="block h-full w-full object-cover" />
           </span>
           <span className="hidden lg:block">Vladimir Kasperovich</span>
